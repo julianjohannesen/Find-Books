@@ -1,4 +1,5 @@
 import React from 'react'
+import uuidv4 from 'uuid/v4'
 import BookCard from './BookCard'
 
 export default function DisplayBooks({books}) {
@@ -6,7 +7,7 @@ export default function DisplayBooks({books}) {
         <div>
             {books.length > 0 
                 ? books.map( (book) => {
-                    return <BookCard book={book} />
+                    return <BookCard book={book} key={uuidv4()} />
                 }) 
                 : "No results"}
         </div>

@@ -1,5 +1,4 @@
-
-handleResponse({
+{
     "kind": "books#volumes",
     "totalItems": 2352,
     "items": [
@@ -101,4 +100,8 @@ handleResponse({
             "searchInfo": {
                 "textSnippet": "Browning&#39;s dramatic poem The Ring and the Book narrates the trial of a Roman for the death of his wife and her parents."
             }
-        },
+        }
+    ]
+}
+
+
