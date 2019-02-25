@@ -9,7 +9,8 @@ export default function DisplayBooks({books}) {
                 ? books.map( (book) => {
                     return <BookCard book={book} key={uuidv4()} />
                 }) 
-                : "No results"}
+                : <p>"No results"</p>
+            }
         </div>
     )
 }

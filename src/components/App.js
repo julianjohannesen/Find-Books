@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../styles/App.scss'
+import Header from './Header'
 import Search from './Search'
 import DisplayBooks from './DisplayBooks'
+import Footer from './Footer'
 
 class App extends Component {
 
 	state = {
 		query: '',
 		books: [],
+		isValid: true,
 	}
 
 
@@ -17,7 +20,13 @@ class App extends Component {
 	}
 
 	handleBlur = (e) => {
+		if(e.target.value.trim().length < 1) {
+			this.setState({isValid: false})
+		} 
+	}
 
+	handleFocus = (e) => {
+		this.setState({isValid: true})
 	}
 
 	handleSubmit = (e) => {
@@ -34,8 +43,17 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Search handleBlur={this.handleBlur} handleChange={this.handleChange} handleSubmit={this.handleSubmit} query={this.state.query} />
+				<Header />
+				<Search 
+					handleBlur={this.handleBlur} 
+					handleChange={this.handleChange} 
+					handleFocus={this.handleFocus}
+					handleSubmit={this.handleSubmit} 
+					isValid={this.state.isValid}
+					query={this.state.query} 
+				/>
 				<DisplayBooks books={this.state.books} />
+				<Footer />
 			</div>
 		);
 	}
