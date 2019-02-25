@@ -1,7 +1,7 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
-import smallThumbnailDefault from '../assets/smallThumbnailDefault.svg'
-import thumbnailDefault from '../assets/thumbnailDefault.svg'
+//import smallThumbnailDefault from '../assets/smallThumbnailDefault.png'
+import thumbnailDefault from '../assets/thumbnailDefault.png'
 
 export default function BookCard({ book }) {
 
@@ -15,7 +15,7 @@ export default function BookCard({ book }) {
         categories = ['Categories unavailable'],
         averageRating = null,
         ratingsCount = null,
-        imageLinks = {smallThumbnail: smallThumbnailDefault, thumbnail: thumbnailDefault},
+        imageLinks = {smallThumbnail: null, thumbnail: thumbnailDefault},
         //language = 'en',
         //previewLink = null,
         infoLink = null,
