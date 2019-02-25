@@ -16,6 +16,10 @@ class App extends Component {
 		this.setState({ query: e.target.value.trim() })
 	}
 
+	handleBlur = (e) => {
+
+	}
+
 	handleSubmit = (e) => {
 
 		e.preventDefault()
@@ -30,7 +34,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} query={this.state.query} />
+				<Search handleBlur={this.handleBlur} handleChange={this.handleChange} handleSubmit={this.handleSubmit} query={this.state.query} />
 				<DisplayBooks books={this.state.books} />
 			</div>
 		);
