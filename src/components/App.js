@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../styles/App.scss'
-import Header from './Header'
+//import Header from '../../archive/Header'
+//import Footer from '../../archive/Footer'
 import Search from './Search'
 import DisplayBooks from './DisplayBooks'
-import Footer from './Footer'
 
 class App extends Component {
 
@@ -43,7 +43,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Header />
+				
 				<Search 
 					handleBlur={this.handleBlur} 
 					handleChange={this.handleChange} 
@@ -53,7 +53,7 @@ class App extends Component {
 					query={this.state.query} 
 				/>
 				<DisplayBooks books={this.state.books} />
-				<Footer />
+				
 			</div>
 		);
 	}

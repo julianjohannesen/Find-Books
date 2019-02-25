@@ -14,7 +14,12 @@ export default function Search({ handleBlur, handleChange, handleFocus, handleSu
                 title="Search by title, author, or ISBN"
                 value={query}
             />
-            <button className="button is-large is-primary" type="submit">Submit</button>
+            <button 
+                className="button is-large is-primary" 
+                type="submit"
+            >
+                    Submit
+            </button>
         </form>
     )
 }
