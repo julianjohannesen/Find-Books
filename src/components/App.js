@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import '../styles/App.css'
+import '../styles/App.scss'
 import Search from './Search'
 import DisplayBooks from './DisplayBooks'
 
@@ -13,7 +13,7 @@ class App extends Component {
 
 
 	handleChange = (e) => {
-		this.setState({ query: e.target.value })
+		this.setState({ query: e.target.value.trim() })
 	}
 
 	handleSubmit = (e) => {
