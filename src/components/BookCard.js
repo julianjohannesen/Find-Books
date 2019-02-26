@@ -27,7 +27,9 @@ export default function BookCard({ book }) {
             <div className="tile is-child box">
                 <h2 className="title"><a href={infoLink} title={title}>{title}</a></h2>
                 <h3 className="subtitle">{authors.map(auth => <span key={uuidv4()}>{auth}</span>)}</h3>
-                <h4 className="subtitle">Average rating: {averageRating} ({ratingsCount} ratings)</h4>
+                <h4 className="subtitle">
+                    { averageRating ? `Average rating: ${averageRating} (${ratingsCount} ratings)` : 'No ratings yet.'}
+                </h4>
                 <p>{description}</p>
                 <p>{`Published by ${publisher}, ${publishedDate}`}</p>
                 <p>Pages: {pageCount}</p>
