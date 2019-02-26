@@ -24,15 +24,15 @@ export default function BookCard({ book }) {
 
     return (
         <div className="tile is-parent">
-            <div className="tile is-child">
-                <h2><a href={infoLink} title={title}>{title}</a></h2>
-                <p>{authors.map(auth => <span key={uuidv4}>{auth}</span>)}</p>
-                <p>{`Published by ${publisher}, ${publishedDate}`}</p>
+            <div className="tile is-child box">
+                <h2 className="title"><a href={infoLink} title={title}>{title}</a></h2>
+                <h3 className="subtitle">{authors.map(auth => <span key={uuidv4()}>{auth}</span>)}</h3>
+                <h4 className="subtitle">Average rating: {averageRating} ({ratingsCount} ratings)</h4>
                 <p>{description}</p>
+                <p>{`Published by ${publisher}, ${publishedDate}`}</p>
                 <p>Pages: {pageCount}</p>
-                <p>{categories.map(cat => <span key={uuidv4}>{cat}</span>)}</p>
-                <p>Average rating: {averageRating} ({ratingsCount})</p>
-                <figure className="image">
+                <p>{categories.map(cat => <span key={uuidv4()}>{cat}</span>)}</p>
+                <figure className="image" style={{width:"128px"}}>
                     <img src={imageLinks.thumbnail} alt="Book cover" />
                 </figure>
             </div>
