@@ -11,12 +11,14 @@ export default function Search({ handleBlur, handleChange, handleFocus, handleSu
                     onFocus={handleFocus}
                     placeholder="search by title, author, isbn"
                     required 
+                    style={{borderTopRightRadius: "0", borderBottomRightRadius: "0",}}
                     type="text"
                     title="Search by title, author, or ISBN"
                     value={query}
                 />
                 <button
                     className="button is-large is-primary"
+                    style={{borderTopLeftRadius: "0", borderBottomLeftRadius: "0"}}
                     type="submit"
                 >
                     Submit
