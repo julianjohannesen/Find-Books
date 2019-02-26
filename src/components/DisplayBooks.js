@@ -7,9 +7,8 @@ export default function DisplayBooks({ books }) {
     const generateRows = () => {
         let arr = []
         for(let i=0; i<books.length; i++) {
-            if((i+1) % 3 === 0) arr.push((
-                <div key={uuidv4()} className="tile is-ancestor">
-                    <BookCard book={books[i-2]} />     
+            if((i+1) % 2 === 0) arr.push((
+                <div key={uuidv4()} className="tile is-ancestor">     
                     <BookCard book={books[i-1]} />     
                     <BookCard book={books[i]} />     
                 </div>

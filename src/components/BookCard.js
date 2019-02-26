@@ -25,12 +25,16 @@ export default function BookCard({ book }) {
     return (
         <div className="tile is-parent">
             <div className="tile is-child box">
-                <h2 className="title"><a href={infoLink} title={title}>{title}</a></h2>
-                <h3 className="subtitle">{authors.map(auth => <span key={uuidv4()}>{auth}</span>)}</h3>
+                <h2 className="title">
+                    <a className="is-size-4" href={infoLink} title={title}>{title}</a>
+                </h2>
+                <h3 className="subtitle">
+                    {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
+                </h3>
                 <h4 className="subtitle">
                     { averageRating ? `Average rating: ${averageRating} (${ratingsCount} ratings)` : 'No ratings yet.'}
                 </h4>
-                <p>{description}</p>
+                <p>{description.substring(0,250)}</p>
                 <p>{`Published by ${publisher}, ${publishedDate}`}</p>
                 <p>Pages: {pageCount}</p>
                 <p>{categories.map(cat => <span key={uuidv4()}>{cat}</span>)}</p>
