@@ -3,7 +3,6 @@ import uuidv4 from 'uuid/v4'
 import BookCard from './BookCard'
 
 export default function DisplayBooks({ books }) {
-    console.log(books)
     const generateRows = () => {
         let arr = []
         for(let i=0; i<books.length; i++) {
