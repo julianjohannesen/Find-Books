@@ -6,23 +6,17 @@ export default function DisplayBooks({ books }) {
     console.log(books)
     const generateRows = () => {
         let arr = []
-        for(let i=1; i<=books.length; i++) {
-            if(i % 3 === 0) arr.push((
+        for(let i=0; i<books.length; i++) {
+            if((i+1) % 3 === 0) arr.push((
                 <div key={uuidv4()} className="tile is-ancestor">
-                    <BookCard book={books[i-3]} />     
                     <BookCard book={books[i-2]} />     
                     <BookCard book={books[i-1]} />     
+                    <BookCard book={books[i]} />     
                 </div>
             ))
             if(i+1 === i.length) arr.push((
                 <div key={uuidv4()} className="tile is-ancestor">
                     <BookCard book={books[i]} />         
-                </div>
-            ))
-            if(i+2 === i.length) arr.push((
-                <div key={uuidv4()} className="tile is-ancestor">
-                    <BookCard book={books[i]} />         
-                    <BookCard book={books[i+1]} />         
                 </div>
             ))
         }
