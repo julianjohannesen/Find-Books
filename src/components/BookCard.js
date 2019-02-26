@@ -15,7 +15,7 @@ export default function BookCard({ book }) {
         categories = ['Categories unavailable'],
         averageRating = null,
         ratingsCount = null,
-        imageLinks = {smallThumbnail: null, thumbnail: thumbnailDefault},
+        imageLinks = { smallThumbnail: null, thumbnail: thumbnailDefault },
         //language = 'en',
         //previewLink = null,
         infoLink = null,
@@ -23,17 +23,20 @@ export default function BookCard({ book }) {
     } = book.volumeInfo
 
     return (
-        <div>
-            <h2><a href={infoLink} title={title}>{title}</a></h2>
-            <p>{authors.map(auth=><span key={uuidv4}>{auth}</span>)}</p>
-            <p>{`Published by ${publisher}, ${publishedDate}`}</p>
-            <p>{description}</p>
-            <p>Pages: {pageCount}</p>
-            <p>{categories.map(cat=><span key={uuidv4}>{cat}</span>)}</p>
-            <p>Average rating: {averageRating} ({ratingsCount})</p>
-            <figure>
-                <img src={imageLinks.thumbnail} alt="Book cover"/>
-            </figure>
+        <div className="tile is-parent">
+            <div className="tile is-child">
+                <h2><a href={infoLink} title={title}>{title}</a></h2>
+                <p>{authors.map(auth => <span key={uuidv4}>{auth}</span>)}</p>
+                <p>{`Published by ${publisher}, ${publishedDate}`}</p>
+                <p>{description}</p>
+                <p>Pages: {pageCount}</p>
+                <p>{categories.map(cat => <span key={uuidv4}>{cat}</span>)}</p>
+                <p>Average rating: {averageRating} ({ratingsCount})</p>
+                <figure className="image">
+                    <img src={imageLinks.thumbnail} alt="Book cover" />
+                </figure>
+            </div>
         </div>
+
     )
 }

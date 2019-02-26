@@ -16,7 +16,7 @@ class App extends Component {
 
 
 	handleChange = (e) => {
-		this.setState({ query: e.target.value.trim() })
+		this.setState({ query: e.target.value })
 	}
 
 	handleBlur = (e) => {
@@ -33,7 +33,7 @@ class App extends Component {
 
 		e.preventDefault()
 
-		const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY&q=${this.state.query}`
+		const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY&q=${this.state.query.trim()}`
 		
 		axios(url)
 			.then(res=>this.setState({books: res.data.items}))

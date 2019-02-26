@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function NavBar() {
 
-    // Modifier class is-active will turn the hamburger menu into a cross
+    // Modifier class 'is-active' will turn the hamburger menu into a cross (does it also expand the menu?)
 
     // When the hamburger menu appears the aria-hidden attribute on each span must be set to false
 
