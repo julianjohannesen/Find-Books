@@ -8,7 +8,7 @@ import NoMatch from './components/NoMatch';
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/about" component={About} />
@@ -17,6 +17,8 @@ ReactDOM.render(
     </Router>,
     document.getElementById('root')
 );
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
