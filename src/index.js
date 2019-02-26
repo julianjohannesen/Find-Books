@@ -1,14 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './styles/index.scss'
 import App from './components/App'
-//import About from './components/About';
-//import NoMatch from './components/NoMatch';
+import About from './components/About';
+import NoMatch from './components/NoMatch';
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-    <App />,
+    <Router>
+        <Switch>
+            <Route exact path="/" component={App} />
+            <Route path="/about" component={About} />
+            <Route component={NoMatch} />
+        </Switch>
+    </Router>,
     document.getElementById('root')
 );
 
@@ -17,10 +23,3 @@ ReactDOM.render(
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-//      <Router>
-//         <Switch>
-//             <Route exact path="/" component={App} /> 
-//             <Route path="/about" component={About} /> 
-//             <Route component={NoMatch} />
-//         </Switch>
-//      </Router>
