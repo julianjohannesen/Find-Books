@@ -36,7 +36,7 @@ export default function BookDetails({book, handleClose, show}) {
                 <section className="modal-card-body">
                     <figure 
                         className="image is-pulled-left" 
-                        style={{ maxWidth: "128px", marginRight: "1em", marginTop: "-65px", }}
+                        style={{ maxWidth: "128px", marginRight: "1em", }}
                     >
                         <img 
                             src={imageLinks.thumbnail} 

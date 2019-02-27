@@ -33,7 +33,7 @@ class App extends Component {
 
 		e.preventDefault()
 
-		const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY&q=${this.state.query.trim()}`
+		const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY&q=${this.state.query.trim()}&maxResults=40`
 		
 		axios(url)
 			.then(res=>this.setState({books: res.data.items}))
