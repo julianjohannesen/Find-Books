@@ -17,6 +17,7 @@ export default function Search({ handleBlur, handleChange, handleFocus, handleSu
                     value={query}
                 />
                 <button
+                    aria-haspopup="true"
                     className="button is-large is-primary"
                     style={{borderTopLeftRadius: "0", borderBottomLeftRadius: "0"}}
                     type="submit"
