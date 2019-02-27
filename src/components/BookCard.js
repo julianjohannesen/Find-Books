@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
-import thumbnailDefault from '../assets/thumbnailDefault.png'
 import BookDetails from './BookDetails'
 
 export default class BookCard extends React.Component {
@@ -18,7 +17,7 @@ export default class BookCard extends React.Component {
             authors = ['Author unavailable'],
             averageRating = 0,
             ratingsCount = 0,
-            imageLinks = { thumbnail: thumbnailDefault },
+            imageLinks = { thumbnail: '../assets/thumbnailDefault.png' },
             infoLink = '',
         } = this.props.book.volumeInfo
             
@@ -47,6 +46,8 @@ export default class BookCard extends React.Component {
                         >
                             See this Book
                         </button>
+
+                        <BookDetails book={this.props.book} show={this.state.show} handleClose={this.hideModal} />
                     </div>
                 </div>
             </div>
