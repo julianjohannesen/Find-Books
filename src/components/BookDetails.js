@@ -1,7 +1,8 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
+import thumbnailDefault from '../assets/thumbnailDefault.png'
 
-export default function BookDetails({book,handleClose,show}) {
+export default function BookDetails({book, handleClose, show}) {
 
     const {
         title = 'Title unavailable',
@@ -21,14 +22,18 @@ export default function BookDetails({book,handleClose,show}) {
     } = book.volumeInfo
 
     return (
-        <div class={show ? "modal display-block" : "modal display-none"} >
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title">{title}</p>
-                    <button class="delete" aria-label="close"></button>
+        <div className={show ? "modal is-block" : "modal is-hidden"} >
+            <div className="modal-background"></div>
+            <div className="modal-card">
+                <header className="modal-card-head">
+                    <p className="modal-card-title">{title}</p>
+                    <button 
+                        aria-label="close"
+                        className="delete" 
+                        onClick={handleClose} 
+                    ></button>
                 </header>
-                <section class="modal-card-body">
+                <section className="modal-card-body">
                     <figure 
                         className="image is-pulled-left" 
                         style={{ maxWidth: "128px", marginRight: "1em", marginTop: "-65px", }}
@@ -53,9 +58,13 @@ export default function BookDetails({book,handleClose,show}) {
                         <p>{categories.map(cat => <span key={uuidv4()}>{cat}</span>)}</p>
                     </div>
                 </section>
-                    <footer class="modal-card-foot">
-                        <button class="button is-success">Shelve</button>
-                        <button class="button">Cancel</button>
+                    <footer className="modal-card-foot">
+                        <button className="button is-success">Shelve</button>
+                        <button 
+                            aria-label="close"
+                            className="button" 
+                            onClick={handleClose} 
+                        >Cancel</button>
                     </footer>
             </div>
             </div>
