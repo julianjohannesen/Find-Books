@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../styles/App.scss'
-import Header from './Header'
-import Footer from './Footer'
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 import Search from './Search'
 import DisplayBooks from './DisplayBooks'
 
