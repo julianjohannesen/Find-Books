@@ -12,7 +12,7 @@ export default function Search({ handleBlur, handleChange, handleFocus, handleSu
                     placeholder="search by title, author, isbn"
                     required 
                     style={{borderTopRightRadius: "0", borderBottomRightRadius: "0",}}
-                    type="text"
+                    type="search"
                     title="Search by title, author, or ISBN"
                     value={query}
                 />

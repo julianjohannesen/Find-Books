@@ -1,5 +1,6 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
+import Ratings from './Ratings'
 import thumbnailDefault from '../assets/thumbnailDefault.png'
 
 export default function BookDetails({book, handleClose, show}) {
@@ -20,6 +21,29 @@ export default function BookDetails({book, handleClose, show}) {
         infoLink = '',
         //canonicalVolumeLink = '',
     } = book.volumeInfo
+
+    const generateRatings = () => {
+        if(averageRating){
+            return (
+                <h4 className="subtitle" style={{ marginTop: "-1.25rem" }} >
+                    <strong>Average rating</strong>:&nbsp;
+                    <Ratings
+                        rating={averageRating}
+                        widgetDimensions="30px"
+                        widgetRatedColors="gold"
+                        widgetSpacings="2px"
+                    >
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    </Ratings>
+                    ({ratingsCount})
+                </h4>
+            )
+        }
+    }
 
     return (
         <div className={show ? "modal is-block" : "modal is-hidden"} >
@@ -47,15 +71,15 @@ export default function BookDetails({book, handleClose, show}) {
 
                     <div style={{ marginLeft: "calc(128px + 2em)" }}>
                         <h3 className="subtitle" >
-                            By: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
+                            <strong>By</strong>: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
                         </h3>
-                        <h4 className="subtitle" style={{ marginTop: "-1.25rem" }} >
-                            {averageRating ? `Average rating: ${averageRating} (${ratingsCount} ratings)` : 'No ratings yet.'}
-                        </h4>
-                        <p>{description.substring(0, 500)}</p>
-                        <p>{`Publisher: ${publisher}. Publication Date: ${publishedDate}`}</p>
-                        <p>Pages: {pageCount}</p>
-                        <p>{categories.map(cat => <span key={uuidv4()}>{cat}</span>)}</p>
+                        {generateRatings()}
+
+                        <p style={{marginBottom: "1em"}}><strong>Description</strong>: {description.substring(0, 500)}</p>
+                        <p><strong>Publisher</strong>: {publisher}</p>
+                        <p><strong>Publication Date</strong>: {publishedDate}</p>
+                        <p><strong>Pages</strong>: {pageCount}</p>
+                        <p><strong>Categories</strong>: {categories.map(cat => <span key={uuidv4()}>{cat}</span>)}</p>
                     </div>
                 </section>
                     <footer className="modal-card-foot">
