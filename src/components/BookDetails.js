@@ -1,9 +1,8 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
-import Ratings from './Ratings'
 import thumbnailDefault from '../assets/thumbnailDefault.png'
 
-export default function BookDetails({book, handleClose, show}) {
+export default function BookDetails({book, generateRatings, handleClose, show}) {
 
     const {
         title = 'Title unavailable',
@@ -22,28 +21,6 @@ export default function BookDetails({book, handleClose, show}) {
         //canonicalVolumeLink = '',
     } = book.volumeInfo
 
-    const generateRatings = () => {
-        if(averageRating){
-            return (
-                <h4 className="subtitle" style={{ marginTop: "-1.25rem" }} >
-                    <strong>Average rating</strong>:&nbsp;
-                    <Ratings
-                        rating={averageRating}
-                        widgetDimensions="30px"
-                        widgetRatedColors="gold"
-                        widgetSpacings="2px"
-                    >
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    </Ratings>
-                    ({ratingsCount})
-                </h4>
-            )
-        }
-    }
 
     return (
         <div className={show ? "modal is-block" : "modal is-hidden"} >
@@ -73,7 +50,7 @@ export default function BookDetails({book, handleClose, show}) {
                         <h3 className="subtitle" >
                             <strong>By</strong>: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
                         </h3>
-                        {generateRatings()}
+                        {generateRatings(averageRating, ratingsCount)}
 
                         <p style={{marginBottom: "1em"}}><strong>Description</strong>: {description.substring(0, 500)}</p>
                         <p><strong>Publisher</strong>: {publisher}</p>

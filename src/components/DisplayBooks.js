@@ -1,24 +1,49 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
+import Ratings from './Ratings'
 import BookCard from './BookCard'
 
 export default function DisplayBooks({ books }) {
+
     const generateRows = () => {
         let arr = []
         for(let i=0; i<books.length; i++) {
             if((i+1) % 2 === 0) arr.push((
                 <div key={uuidv4()} className="tile is-ancestor">     
-                    <BookCard book={books[i-1]} />     
-                    <BookCard book={books[i]} />     
+                    <BookCard book={books[i-1]} generateRatings={generateRatings} />     
+                    <BookCard book={books[i]} generateRatings={generateRatings} />     
                 </div>
             ))
             if(i+1 === i.length) arr.push((
                 <div key={uuidv4()} className="tile is-ancestor">
-                    <BookCard book={books[i]} />         
+                    <BookCard book={books[i]} generateRatings={generateRatings} />         
                 </div>
             ))
         }
         return arr
+    }
+
+    const generateRatings = (averageRating, ratingsCount) => {
+        if(averageRating){
+            return (
+                <h4 className="subtitle" style={{ marginTop: "-1.25rem" }} >
+                    <strong>Average rating</strong>:&nbsp;
+                    <Ratings
+                        rating={averageRating}
+                        widgetDimensions="30px"
+                        widgetRatedColors="gold"
+                        widgetSpacings="2px"
+                    >
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    </Ratings>
+                    ({ratingsCount})
+                </h4>
+            )
+        }
     }
     
     return (

@@ -35,9 +35,7 @@ export default class BookCard extends React.Component {
                         <h3 className="subtitle" >
                             By: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
                         </h3>
-                        <h4 className="subtitle" style={{ marginTop: "-1.25rem" }} >
-                            {averageRating ? `Average rating: ${averageRating} (${ratingsCount} ratings)` : 'No ratings yet.'}
-                        </h4>
+                        {this.props.generateRatings(averageRating, ratingsCount)}
                         <button 
                             aria-haspopup="true"
                             className="button is-primary modal-button" 
@@ -50,6 +48,7 @@ export default class BookCard extends React.Component {
 
                         <BookDetails 
                             book={this.props.book} 
+                            generateRatings={this.props.generateRatings}
                             handleClose={this.hideModal}
                             show={this.state.show}
                         />
